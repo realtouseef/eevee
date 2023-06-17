@@ -1,0 +1,23 @@
+<main class="story_container">
+  <article *ngFor="let story of topStoriesList" class="stories">
+    <ng-container *ngIf="story.url !== 'null'">
+      <a href="{{ story.url }}" target="_blank">
+        <img
+          class="story_image"
+          *ngIf="story.multimedia && story.multimedia.length > 0"
+          [src]="story.multimedia[0].url"
+        />
+        <div>
+          <small class="story_section"
+            >{{ story.section }}&nbsp; {{ story.subsection }}</small
+          >
+          <h3 class="story_title">{{ story.title }}</h3>
+          <p class="story_abstract">{{ story.abstract }}</p>
+          <cite>{{ story.byline }}</cite>
+        </div>
+      </a>
+    </ng-container>
+  </article>
+</main>
+
+<router-outlet></router-outlet>
