@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TopStoriesService } from '../services/top-stories.service';
+import { TopStoriesService } from '../services/top-stories/top-stories.service';
 import { type Stories } from 'src/types';
 
 @Component({
@@ -9,6 +9,7 @@ import { type Stories } from 'src/types';
 })
 export class TopStoriesComponent implements OnInit {
   topStoriesList: Stories[] = [];
+  isLoading = false;
 
   constructor(private topStoriesService: TopStoriesService) {}
 
@@ -17,9 +18,11 @@ export class TopStoriesComponent implements OnInit {
   }
 
   showTopStories() {
+    this.isLoading = true;
     return this.topStoriesService.getTopStories().subscribe(
       (result) => {
         this.topStoriesList = result.results;
+        this.isLoading = false;
       },
       (error: any) => {
         console.error('Error fetching data', error);

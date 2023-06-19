@@ -1,0 +1,12 @@
+<div *ngIf="isLoading ? 'Loading' : rickAndMorty.results"></div>
+
+<main class="character_container">
+  <section *ngFor="let character of rickAndMorty.results" class="character">
+    <img [src]="character.image" class="character_img" />
+    <div class="character_card">
+      <h3>{{ character.name }}</h3>
+      <small>{{ character.status }} - {{ character.species }}</small>
+      <p>Origin: {{ character.origin.name }}</p>
+    </div>
+  </section>
+</main>

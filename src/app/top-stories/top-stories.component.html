@@ -1,3 +1,5 @@
+<div *ngIf="isLoading ? 'Loading' : topStoriesList"></div>
+
 <main class="story_container">
   <article *ngFor="let story of topStoriesList" class="stories">
     <ng-container *ngIf="story.url !== 'null'">

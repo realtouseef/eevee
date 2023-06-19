@@ -1,0 +1,21 @@
+<div *ngIf="isLoading ? 'Loading' : allAgents"></div>
+
+<main class="agents_wrapper">
+  <section *ngFor="let agent of allAgents" class="agents_inner">
+    <img [src]="agent.displayIcon" class="agents_portrait" />
+    <div class="agents_name_wrapper">
+      <h3>
+        {{ agent?.displayName }}
+      </h3>
+      <small class="agents_badge">{{ agent?.role?.displayName }}</small>
+    </div>
+    <p class="agents_desc">{{ agent.description }}</p>
+
+    <h5>Abilities</h5>
+    <div>
+      <ul *ngFor="let ability of agent.abilities">
+        <li>{{ ability.displayName }}</li>
+      </ul>
+    </div>
+  </section>
+</main>

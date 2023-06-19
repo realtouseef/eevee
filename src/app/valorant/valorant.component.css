@@ -1,0 +1,47 @@
+.agents_wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  max-width: 70rem;
+  margin: 2rem auto;
+}
+
+.agents_inner {
+  border: 1px solid #ccc;
+  border-radius: 1rem;
+  padding: 1rem;
+}
+
+.agents_portrait {
+  width: 10rem;
+  height: auto;
+  border-radius: 100%;
+}
+
+.agents_name_wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.agents_desc {
+  color: #424242;
+}
+
+.agents_badge {
+  background-color: chartreuse;
+  text-transform: uppercase;
+  padding: 0.1rem 0.2rem;
+}
+
+@media screen and (min-width: 768px) {
+  .agents_wrapper {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .agents_wrapper {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
